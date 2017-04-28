@@ -13,3 +13,5 @@ RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.18.1
 RUN curl -s -S -O https://storage.googleapis.com/kubernetes-release/release/v1.4.6/bin/linux/amd64/kubectl && chmod +x kubectl
 
 ADD circle.npmrc /root/.npmrc
+
+ENV PATH="${HOME}/.yarn/bin:${PATH}"
