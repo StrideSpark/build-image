@@ -5,6 +5,7 @@ RUN apt-get -y -qq update && \
         python-pip \
         python-dev \
         build-essential \
+        postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install awscli==1.11.81 credstash==1.11.0
