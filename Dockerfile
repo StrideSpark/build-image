@@ -27,6 +27,6 @@ RUN wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/r
 
 # dockerie
 ENV DOCKERIZE_VERSION="v0.3.0"
-RUN wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar -C /usr/local/bin -zx --strip-components=1
+RUN wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar -C /usr/local/bin -zx
 
 ADD circle.npmrc /root/.npmrc
