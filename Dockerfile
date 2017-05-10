@@ -21,9 +21,9 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  apt-key add - && 
 
 RUN pip install awscli==1.11.81 credstash==1.11.0
 
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
+RUN wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin
 
-RUN wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.4.6/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.22.0
 
 # dockerie
 ENV DOCKERIZE_VERSION="v0.3.0"
