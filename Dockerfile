@@ -23,10 +23,12 @@ RUN pip install awscli==1.11.81 credstash==1.11.0
 
 RUN wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin
 
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
+# RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
+RUN npm install -g yarn@0.23.4
 
 # dockerie
 ENV DOCKERIZE_VERSION="v0.3.0"
 RUN wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar -C /usr/local/bin -zx
 
 ADD circle.npmrc /root/.npmrc
+ADD circle.npmrc /usr/local/share/.npmrc
