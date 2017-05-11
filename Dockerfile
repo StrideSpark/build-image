@@ -32,3 +32,11 @@ RUN wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/
 
 ADD circle.npmrc /root/.npmrc
 ADD circle.npmrc /usr/local/share/.npmrc
+
+ENV AWS_DEFAULT_REGION="us-west-2"
+ENV PGHOST="localhost"
+ENV PGUSER="ubuntu"
+ENV BASH_ENV="/app/bash.env"
+
+# use staging snowflake schema by default for build image
+ENV USE_STAGING="true"
