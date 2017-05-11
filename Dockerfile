@@ -6,6 +6,7 @@ RUN apt-get -y -qq update && \
         python-dev \
         build-essential \
         postgresql-client \
+        mysql-client \
         apt-transport-https \
         software-properties-common \
     && rm -rf /var/lib/apt/lists/*
