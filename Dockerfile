@@ -9,6 +9,7 @@ RUN apt-get -y -qq update && \
         mysql-client \
         apt-transport-https \
         software-properties-common \
+        jq \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  apt-key add - && \
