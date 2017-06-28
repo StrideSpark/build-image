@@ -23,14 +23,14 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add 
 
 RUN sudo pip install awscli==1.11.81 credstash==1.11.0
 
-RUN wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin
+RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin
 
 # RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
 RUN sudo npm install -g yarn@0.18.1
 
 # dockerie
 ENV DOCKERIZE_VERSION="v0.3.0"
-RUN wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | sudo tar -C /usr/local/bin -zx
+RUN sudo wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | sudo tar -C /usr/local/bin -zx
 
 ADD circle.npmrc /root/.npmrc
 ADD circle.npmrc /usr/local/share/.npmrc
