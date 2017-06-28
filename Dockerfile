@@ -1,4 +1,4 @@
-FROM node:6.9.1
+FROM node:8.1.2
 
 RUN apt-get -y -qq update && \
     apt-get -y -qq install \
