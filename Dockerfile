@@ -32,7 +32,7 @@ RUN sudo npm install -g yarn@0.18.1
 ENV DOCKERIZE_VERSION="v0.3.0"
 RUN sudo wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | sudo tar -C /usr/local/bin -zx
 
-ADD circle.npmrc /root/.npmrc
+ADD circle.npmrc /home/circleci/.npmrc
 ADD circle.npmrc /usr/local/share/.npmrc
 
 ENV AWS_DEFAULT_REGION="us-west-2"
@@ -42,3 +42,5 @@ ENV BASH_ENV="/app/bash.env"
 
 # use staging snowflake schema by default for build image
 ENV USE_STAGING="true"
+
+RUN sudo mkdir /app && sudo chown circleci:circleci app
