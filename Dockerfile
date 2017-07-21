@@ -10,6 +10,7 @@ RUN sudo apt-get -y -qq update && \
         apt-transport-https \
         software-properties-common \
         jq \
+        rsync \
     && sudo rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add - && \
@@ -29,8 +30,8 @@ RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-rele
 RUN sudo npm install -g yarn@0.18.1
 
 # dockerie
-ENV DOCKERIZE_VERSION="v0.3.0"
-RUN sudo wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | sudo tar -C /usr/local/bin -zx
+# ENV DOCKERIZE_VERSION="v0.3.0"
+# RUN sudo wget --progress=dot:mega -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | sudo tar -C /usr/local/bin -zx
 
 ADD circle.npmrc /home/circleci/.npmrc
 ADD circle.npmrc /usr/local/share/.npmrc
