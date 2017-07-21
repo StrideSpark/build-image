@@ -26,8 +26,11 @@ RUN sudo pip install awscli==1.11.113 credstash==1.11.0
 
 RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin
 
+RUN sudo chown circleci:circleci -R /usr/local/lib/node_modules
+RUN sudo chown circleci:circleci -R /usr/local/bin
+
 # RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
-RUN sudo npm install -g yarn@0.18.1
+RUN npm install -g yarn@0.18.1 npm
 
 # dockerie
 # ENV DOCKERIZE_VERSION="v0.3.0"
