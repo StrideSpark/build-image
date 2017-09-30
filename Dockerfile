@@ -1,23 +1,23 @@
-FROM circleci/node:8.1.2
+FROM circleci/node:8.6.0
 
 RUN sudo apt-get -y -qq update && \
     sudo apt-get -y -qq install \
-        python-pip \
-        python-dev \
-        build-essential \
-        postgresql-client \
-        mysql-client \
-        apt-transport-https \
-        software-properties-common \
-        jq \
-        rsync \
+    python-pip \
+    python-dev \
+    build-essential \
+    postgresql-client \
+    mysql-client \
+    apt-transport-https \
+    software-properties-common \
+    jq \
+    rsync \
     && sudo rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add - && \
     sudo add-apt-repository \
-        "deb [arch=amd64] https://download.docker.com/linux/debian \
-        $(lsb_release -cs) \
-        stable" && \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) \
+    stable" && \
     sudo apt-get update && \
     sudo apt-get -y -qq install docker-ce && \
     sudo rm -rf /var/lib/apt/lists/*
@@ -30,7 +30,7 @@ RUN sudo chown circleci:circleci -R /usr/local/lib/node_modules
 RUN sudo chown circleci:circleci -R /usr/local/bin
 
 # RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
-RUN npm install -g yarn@0.18.1 npm
+RUN npm install -g yarn@1.1.0 npm
 
 # dockerie
 # ENV DOCKERIZE_VERSION="v0.3.0"
