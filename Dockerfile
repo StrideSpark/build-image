@@ -30,7 +30,7 @@ RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-rele
 # RUN sudo chown circleci:circleci -R /usr/local/bin
 
 # RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.23.4
-RUN sudo npm install -g yarn@1.1.0 npm
+RUN sudo npm install -g yarn@1.1.0
 
 # dockerize
 # ENV DOCKERIZE_VERSION="v0.3.0"
