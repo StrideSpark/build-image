@@ -22,7 +22,9 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add 
     sudo apt-get -y -qq install docker-ce && \
     sudo rm -rf /var/lib/apt/lists/*
 
-RUN sudo pip install awscli==1.11.164 credstash==1.13.3
+RUN sudo pip install pipsi==0.9
+RUN sudo pipsi --home=/ --bin-dir=/bin install awscli==1.11.165
+RUN sudo pipsi --home=/ --bin-dir=/bin install credstash==1.13.3
 
 RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin
 
