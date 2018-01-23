@@ -51,5 +51,6 @@ ENV BASH_ENV="/app/bash.env"
 
 # use staging snowflake schema by default for build image
 ENV USE_STAGING="true"
+ENV NODE_ENV="test"
 
 RUN sudo mkdir /app && sudo chown circleci:circleci app
