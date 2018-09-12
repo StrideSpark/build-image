@@ -18,6 +18,7 @@ RUN sudo apt-get -y -qq update && \
     software-properties-common \
     jq \
     rsync \
+    gnupg2 \
     && sudo rm -rf /var/lib/apt/lists/*
 
 #Go add docker-ce to apt-get repo and then install
