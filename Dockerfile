@@ -1,10 +1,10 @@
-FROM circleci/node:8.6.0
+FROM circleci/node:8.12.0-stretch
 
 #These two commands allow us to install postgres-client-10 event though only 9.3 is available on trusty
 RUN  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
     sudo apt-key add -
 
-RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+RUN sudo sh -c 'echo "     deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
 
 #Go install some stuff
 RUN sudo apt-get -y -qq update && \
