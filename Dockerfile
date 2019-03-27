@@ -1,4 +1,4 @@
-FROM circleci/node:10.15.1-stretch
+FROM circleci/node:10.15.3-stretch
 
 #These two commands allow us to install postgres-client-10 event though only 9.3 is available on trusty
 RUN  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
@@ -33,14 +33,14 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg |  sudo apt-key add 
 
 #Install pipsi, then use pipsi to install awscli and credstash
 RUN sudo pip install pipsi==0.9
-RUN sudo pipsi --home=/ --bin-dir=/bin install awscli==1.11.165
-RUN sudo pipsi --home=/ --bin-dir=/bin install credstash==1.14.0
+RUN sudo pipsi --home=/ --bin-dir=/bin install awscli==1.16.120
+RUN sudo pipsi --home=/ --bin-dir=/bin install credstash==1.15.0
 
 #Install kubectl
-RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl && sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin
+RUN sudo wget --progress=dot:mega https://storage.googleapis.com/kubernetes-release/release/v1.9.11/bin/linux/amd64/kubectl && sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin
 
 #Install yarn
-RUN sudo npm install -g yarn@1.3.2
+RUN sudo npm install -g yarn@1.13.0
 
 ADD circle.npmrc /home/circleci/.npmrc
 ADD circle.npmrc /usr/local/share/.npmrc
