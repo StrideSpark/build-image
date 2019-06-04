@@ -1,4 +1,4 @@
-FROM circleci/node:10.15.3-stretch
+FROM circleci/node:10.16.0-stretch
 
 #These two commands allow us to install postgres-client-10 event though only 9.3 is available on trusty
 RUN  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
